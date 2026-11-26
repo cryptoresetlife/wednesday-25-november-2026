@@ -13,7 +13,7 @@ export const DAY = {
   heroes: [
     { region: 'am', tag: 'US · TRADE', place: 'WASHINGTON', art: 'tariffs', lat: 38.9, lon: -77,
       head: 'Trump proposes new tariffs on 14 economies',
-      text: 'A Section 301 probe ends with proposed duties on the EU, India, Japan, Taiwan and others, 20% on China. The EU and China reject it; the Nasdaq dives 4% before closing 0.6% down, gold falls 3%.' },
+      text: 'A Section 301 probe ends with proposed duties on the EU, India, Japan, Taiwan and others, 20% on China. The EU and China reject it; the Nasdaq falls over 4% intraday, then closes 0.6% down. Gold drops more than 3%.' },
     { region: 'as', tag: 'ASIA · MARKETS', place: 'SEOUL / TAIPEI / TOKYO', art: 'chips', lat: 37.5, lon: 127,
       head: 'Chip stocks crash as AI doubts return',
       text: 'Kospi falls 6.2%, Taiwan 4.8%, Nikkei 2.8%. SK Hynix loses 11.1%, Samsung 9.9% and Tokyo Electron 12.5% in a day.' },
