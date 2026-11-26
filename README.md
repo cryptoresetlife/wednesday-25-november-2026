@@ -11,6 +11,7 @@ strikes, Pakistan's first astronaut, the Australia–Solomons treaty and 34 more
 - `src/day.mjs`: the day's stories, numbers and map positions
 - `src/build.mjs`: lays the page out as HTML/SVG and renders `entry.png` (1024×1024) with headless Chrome
 - `src/art.mjs`, `src/icons.mjs`, `src/world.mjs`: original drawings, pictograms and a hand-traced world outline
+- `entry.png` is that render reduced to a 256-colour indexed PNG (about 97 KB), same pixels to the eye
 - `main.ts`: the entry program; it copies `entry.png` to the output directory, with no network
 
 ## Run it
