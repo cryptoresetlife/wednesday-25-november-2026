@@ -1,0 +1,33 @@
+// Small original pictograms for the story cards, drawn on a 40x40 grid in the story's region colour.
+const wrap = (inner) => `<svg viewBox="0 0 40 40">${inner}</svg>`;
+
+export const ICON = {
+  fire: (c) => wrap(`<path d="M20 4c3 7 10 10 10 20a10 10 0 0 1-20 0c0-6 3-8 5-12 1 4 3 5 4 5-1-5 0-9 1-13z" fill="${c}"/><path d="M20 22c2 3 4 4 4 8a4 4 0 0 1-8 0c0-3 2-4 4-8z" fill="#fff6"/>`),
+  rubble: (c) => wrap(`<path d="M4 34h32v3H4z" fill="${c}"/><path d="M7 34V18l7-4v20zM16 34V10h9v8l-3 3 4 3-2 10z" fill="${c}"/><path d="M27 34l3-9 6 9z" fill="${c}" opacity=".7"/><circle cx="31" cy="12" r="3" fill="${c}" opacity=".45"/><circle cx="35" cy="7" r="2" fill="${c}" opacity=".3"/>`),
+  ballot: (c) => wrap(`<rect x="6" y="20" width="28" height="16" rx="2" fill="${c}"/><rect x="13" y="22" width="14" height="2.5" fill="#fff"/><path d="M13 4h14v17H13z" fill="#fff" stroke="${c}" stroke-width="2"/><path d="M16 12l3 3 6-6" fill="none" stroke="${c}" stroke-width="2.5"/>`),
+  up: (c) => wrap(`<path d="M4 36h32" stroke="${c}" stroke-width="2"/><path d="M5 30l9-9 6 5 13-14" fill="none" stroke="${c}" stroke-width="3.5"/><path d="M26 10h9v9z" fill="${c}"/>`),
+  down: (c) => wrap(`<path d="M4 36h32" stroke="${c}" stroke-width="2"/><path d="M5 9l9 9 6-5 13 14" fill="none" stroke="${c}" stroke-width="3.5"/><path d="M26 30h9v-9z" fill="${c}"/>`),
+  ship: (c) => wrap(`<path d="M4 25h32l-5 9H9z" fill="${c}"/><path d="M10 25v-8h14v8M24 20h6v5" fill="none" stroke="${c}" stroke-width="2.5"/><path d="M15 17v-6h4v6" fill="${c}"/><path d="M2 37c4-2 6 2 9 0s5 2 9 0 5 2 9 0 5 2 9 0" fill="none" stroke="${c}" stroke-width="1.6"/>`),
+  plane: (c) => wrap(`<path d="M20 3c2 0 3 2 3 5v8l13 8v4l-13-4v8l4 3v3l-7-2-7 2v-3l4-3v-8L4 28v-4l13-8V8c0-3 1-5 3-5z" fill="${c}"/>`),
+  gavel: (c) => wrap(`<rect x="13" y="5" width="16" height="9" rx="2" transform="rotate(35 21 9)" fill="${c}"/><path d="M17 17L6 33" stroke="${c}" stroke-width="4" stroke-linecap="round"/><rect x="20" y="31" width="16" height="5" rx="1" fill="${c}"/>`),
+  flag: (c) => wrap(`<path d="M8 4v33" stroke="${c}" stroke-width="3"/><path d="M9 6c7-3 11 3 18 0 3-1 5-1 7 0v15c-2-1-4-1-7 0-7 3-11-3-18 0z" fill="${c}"/>`),
+  wave: (c) => wrap(`<path d="M2 26c5-12 13-16 22-12-6 1-8 5-6 9 2 5 8 5 12 2 2-1 4-1 6 0-3 9-14 12-22 9-5-2-9-4-12-8z" fill="${c}"/><path d="M2 34c4-2 6 2 9 0s5 2 9 0 5 2 9 0 5 2 9 0" fill="none" stroke="${c}" stroke-width="1.8"/>`),
+  rain: (c) => wrap(`<path d="M10 20a7 7 0 0 1 3-13 9 9 0 0 1 16 3 6 6 0 0 1 0 12H11z" fill="${c}"/><path d="M12 26l-3 7M20 26l-3 7M28 26l-3 7" stroke="${c}" stroke-width="2.5" stroke-linecap="round"/>`),
+  quake: (c) => wrap(`<path d="M2 22h7l3-9 4 18 4-24 4 22 3-12 2 5h9" fill="none" stroke="${c}" stroke-width="2.6" stroke-linejoin="round"/>`),
+  drone: (c) => wrap(`<path d="M8 20h24M20 14v12" stroke="${c}" stroke-width="3"/><path d="M4 18l10 2-10 2zM36 18l-10 2 10 2z" fill="${c}"/><ellipse cx="20" cy="20" rx="6" ry="4" fill="${c}"/><path d="M14 30l-4 6M26 30l4 6" stroke="${c}" stroke-width="2" opacity=".6"/>`),
+  handshake: (c) => wrap(`<path d="M2 16l8-4 8 4 4-2 8-2 8 4v10l-8 6-6-1-6 3-7-4-9-6z" fill="${c}"/><path d="M13 21l5 4M17 18l6 5M21 16l6 5" stroke="#fff" stroke-width="1.6"/>`),
+  virus: (c) => wrap(`<circle cx="20" cy="20" r="9" fill="${c}"/>${[0, 45, 90, 135, 180, 225, 270, 315].map((a) => `<g transform="rotate(${a} 20 20)"><path d="M20 11V5" stroke="${c}" stroke-width="2"/><circle cx="20" cy="4" r="2.2" fill="${c}"/></g>`).join('')}<circle cx="17" cy="18" r="2" fill="#fff8"/>`),
+  money: (c) => wrap(`<rect x="3" y="10" width="34" height="20" rx="2" fill="${c}"/><circle cx="20" cy="20" r="6" fill="#fff"/><text x="20" y="24" text-anchor="middle" font-size="10" font-weight="700" fill="${c}">$</text>`),
+  ball: (c) => wrap(`<circle cx="20" cy="20" r="15" fill="#fff" stroke="${c}" stroke-width="2.5"/><path d="M20 13l6 4-2 7h-8l-2-7z" fill="${c}"/><path d="M20 13V5M26 17l7-3M24 24l4 7M16 24l-4 7M14 17l-7-3" stroke="${c}" stroke-width="1.6"/>`),
+  rocket: (c) => wrap(`<path d="M20 2c6 6 7 14 5 22h-10c-2-8-1-16 5-22z" fill="${c}"/><circle cx="20" cy="13" r="3" fill="#fff"/><path d="M15 20l-6 8 7-2zM25 20l6 8-7-2z" fill="${c}"/><path d="M17 26l3 10 3-10z" fill="#e8a33a"/>`),
+  oil: (c) => wrap(`<path d="M6 36l7-26h14l7 26" fill="none" stroke="${c}" stroke-width="2.6"/><path d="M9 26h22M11 18h18" stroke="${c}" stroke-width="2"/><path d="M14 6h12l-2 4H16z" fill="${c}"/>`),
+  car: (c) => wrap(`<path d="M4 26v-6l5-8h20l6 8v6z" fill="${c}"/><path d="M11 13l-3 6h10v-6zM21 13v6h11l-4-6z" fill="#fff"/><circle cx="11" cy="28" r="4" fill="#222"/><circle cx="29" cy="28" r="4" fill="#222"/>`),
+  court: (c) => wrap(`<path d="M20 3L3 12h34z" fill="${c}"/><path d="M7 14v16M14 14v16M26 14v16M33 14v16" stroke="${c}" stroke-width="3.5"/><path d="M3 32h34v4H3z" fill="${c}"/>`),
+  people: (c) => wrap(`<circle cx="13" cy="11" r="5" fill="${c}"/><circle cx="27" cy="11" r="5" fill="${c}"/><path d="M4 34c0-9 4-15 9-15s9 6 9 15zM18 34c0-9 4-15 9-15s9 6 9 15z" fill="${c}"/>`),
+  chip: (c) => wrap(`<rect x="10" y="10" width="20" height="20" rx="2" fill="${c}"/><rect x="15" y="15" width="10" height="10" fill="#fff"/>${[13, 20, 27].map((v) => `<path d="M${v} 4v6M${v} 30v6M4 ${v}h6M30 ${v}h6" stroke="${c}" stroke-width="2"/>`).join('')}`),
+  globe: (c) => wrap(`<circle cx="20" cy="20" r="15" fill="none" stroke="${c}" stroke-width="2.5"/><ellipse cx="20" cy="20" rx="6" ry="15" fill="none" stroke="${c}" stroke-width="2"/><path d="M5 20h30M8 12h24M8 28h24" stroke="${c}" stroke-width="1.6"/>`),
+  shield: (c) => wrap(`<path d="M20 3l14 5v10c0 9-6 15-14 19C12 33 6 27 6 18V8z" fill="${c}"/><path d="M14 19l4 4 8-8" fill="none" stroke="#fff" stroke-width="3"/>`),
+  bolt: (c) => wrap(`<path d="M23 2L8 23h10l-3 15 17-23H21z" fill="${c}"/>`),
+  leaf: (c) => wrap(`<path d="M6 34C6 16 16 6 34 6c0 18-10 28-28 28z" fill="${c}"/><path d="M6 34L24 16" stroke="#fff" stroke-width="2"/>`),
+  tank: (c) => wrap(`<rect x="5" y="22" width="30" height="9" rx="4.5" fill="${c}"/><path d="M11 22v-6h14v6M24 18h13" stroke="${c}" stroke-width="3.5" fill="${c}"/><circle cx="11" cy="26.5" r="2" fill="#fff"/><circle cx="20" cy="26.5" r="2" fill="#fff"/><circle cx="29" cy="26.5" r="2" fill="#fff"/>`),
+};

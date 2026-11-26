@@ -42,10 +42,10 @@ export const LAND = [
   [[172,-41],[174,-42],[171,-45],[167,-46],[170,-43]],
 ];
 
-// Project lon/lat into a box of width w, height h, cropped to latitudes 75N..48S.
+// Project lon/lat into a box of width w, height h, cropped to 128W..160E and 72N..46S (the Pacific gap is left out).
 export function project(lon, lat, w, h) {
-  const top = 75, bottom = -48;
-  return [((lon + 180) / 360) * w, ((top - lat) / (top - bottom)) * h];
+  const top = 72, bottom = -46, west = -128, east = 160;
+  return [((lon - west) / (east - west)) * w, ((top - lat) / (top - bottom)) * h];
 }
 
 export function worldPaths(w, h) {

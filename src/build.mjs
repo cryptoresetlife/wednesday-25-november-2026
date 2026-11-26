@@ -61,7 +61,7 @@ for (const s of DAY.cards) {
 }
 b += '</section>';
 
-b += `<section class="low"><div class="mapbox"><div class="bh">WHERE · numbers match the stories</div>${map(372, 238)}</div>`;
+b += `<section class="low"><div class="mapbox"><div class="bh">WHERE · numbers match the stories</div>${map(372, 150)}<div class="nums">${DAY.stats.map(([n, l]) => `<div><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('')}</div></div>`;
 b += `<div class="briefs"><div class="bh">ALSO ON ${esc(DAY.short)}</div><div class="list">`;
 for (const s of DAY.briefs) b += `<div>${badge(s.n)}<b>${esc(s.place)}</b> ${esc(s.line)}</div>`;
 b += '</div></div></section>';
@@ -97,6 +97,10 @@ h1{font-family:Georgia,serif;font-size:64px;line-height:1;text-align:center;lett
 .low{display:grid;grid-template-columns:372px 1fr;gap:14px;margin-top:9px}
 .bh{display:inline-block;background:#15120e;color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:2px 7px;margin-bottom:4px}
 .mapbox svg{display:block;border:1px solid #221d16}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:5px}
+.nums div{border-left:3px solid #a8261b;padding:1px 0 1px 5px;line-height:1.1}
+.nums b{display:block;font-family:Georgia,serif;font-size:19px}
+.nums span{font-size:9.5px;color:#5a5246}
 .list{columns:2;column-gap:14px;font-size:11.5px;line-height:1.2}
 .list div{display:flex;align-items:flex-start;break-inside:avoid;margin-bottom:4.5px}
 .list b{margin-right:4px;white-space:nowrap}
