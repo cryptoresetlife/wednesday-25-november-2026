@@ -6,7 +6,7 @@
 
 The world's news of Wednesday 25 November 2026 on one front page: Trump's proposed tariffs on 14 economies, the crash
 in Asian chip stocks, the tanker fire that killed 30 in Greater Cairo, the Houthi strike on Jizan, Russian and Ukrainian
-strikes, Pakistan's first astronaut, the Australia–Solomons treaty and 23 more stories, each dated 25 Nov by its outlet.
+strikes, Pakistan's first astronaut, the Australia–Solomons treaty and 34 more stories across 24 fields, each dated 25 Nov by its outlet.
 
 - `src/day.mjs`: the day's stories, numbers and map positions
 - `src/build.mjs`: lays the page out as HTML/SVG and renders `entry.png` (1024×1024) with headless Chrome

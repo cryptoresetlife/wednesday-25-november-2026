@@ -24,6 +24,8 @@ const tally = Object.keys(REGION)
   .filter(([, c]) => c)
   .map(([r, c]) => `${REGION[r][0]} ${c}`).join(' · ');
 
+// every story names its field (trade, war, disaster...); the header counts the distinct ones
+const fields = new Set(stories.map((s) => s.f).filter(Boolean)).size;
 const badge = (n) => `<i class="n">${n}</i>`;
 const col = (s) => REGION[s.region][1];
 
@@ -41,7 +43,7 @@ function map(w, h) {
 }
 
 let b = '';
-b += `<header><div class="top"><span>THE WORLD IN ONE DAY</span><span class="red">${esc(DAY.dayOfYear)}</span><span>${stories.length} STORIES · ALL DATED ${esc(DAY.short)}</span></div>`;
+b += `<header><div class="top"><span>THE WORLD IN ONE DAY</span><span class="red">${esc(DAY.dayOfYear)}</span><span>${stories.length} STORIES · ${fields} FIELDS · ALL DATED ${esc(DAY.short)}</span></div>`;
 b += `<h1>${esc(DAY.title)}</h1>`;
 b += `<div class="tally">${tally}</div>`;
 b += `<div class="lede">${DAY.lede.map(esc).join('<span class="dia">◆</span>')}</div></header>`;
@@ -61,10 +63,13 @@ for (const s of DAY.cards) {
 }
 b += '</section>';
 
-b += `<section class="low"><div class="mapbox"><div class="bh">WHERE · numbers match the stories</div>${map(372, 150)}<div class="nums">${DAY.stats.map(([n, l]) => `<div><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('')}</div></div>`;
-b += `<div class="briefs"><div class="bh">ALSO ON ${esc(DAY.short)}</div><div class="list">`;
-for (const s of DAY.briefs) b += `<div>${badge(s.n)}<b>${esc(s.place)}</b> ${esc(s.line)}</div>`;
-b += '</div></div></section>';
+// the brief list fills two columns on the right; whatever is left runs on under the map
+const RIGHT = DAY.rightBriefs ?? DAY.briefs.length;
+const brief = (s) => `<div>${badge(s.n)}<b>${esc(s.place)}</b> ${esc(s.line)}</div>`;
+b += `<section class="low"><div class="mapbox"><div class="bh">WHERE · numbers match the stories</div>${map(372, DAY.mapHeight ?? 150)}`;
+b += DAY.briefs.length > RIGHT ? `<div class="list one">${DAY.briefs.slice(RIGHT).map(brief).join('')}</div>` :
+  `<div class="nums">${DAY.stats.map(([n, l]) => `<div><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('')}</div>`;
+b += `</div><div class="briefs"><div class="bh">ALSO ON ${esc(DAY.short)}</div><div class="list">${DAY.briefs.slice(0, RIGHT).map(brief).join('')}</div></div></section>`;
 b += `<footer>Every story above happened or was first reported on <b>${esc(DAY.title)}</b>, as reported by ${esc(DAY.sources)}. Drawings and map are original.</footer>`;
 
 const css = `
@@ -104,6 +109,10 @@ h1{font-family:Georgia,serif;font-size:64px;line-height:1;text-align:center;lett
 .list{columns:2;column-gap:14px;font-size:11.5px;line-height:1.2}
 .list div{display:flex;align-items:flex-start;break-inside:avoid;margin-bottom:4.5px}
 .list b{margin-right:4px;white-space:nowrap}
+.list{font-size:11.3px}
+.list div{margin-bottom:2.2px;white-space:nowrap}
+.list .n{width:15px;height:15px;font-size:9px}
+.list.one{columns:1;margin-top:6px}
 footer{position:absolute;left:14px;right:14px;bottom:7px;border-top:1px solid #221d16;padding-top:3px;font-size:10px;color:#5a5246;text-align:center}
 `;
 
